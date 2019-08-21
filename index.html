@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AeroTerra</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+      crossorigin=""
+    ></script>
+  </head>
+  <body>
+    <div id="container">
+      <div class="modal" id="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <h1 class="modal-card-title">
+              ¿Desea eliminar el Punto de Interés?
+            </h1>
+          </header>
+          <section class="modal-card-body">
+            <p>Una vez confirmado no podrá revertir los cambios</p>
+            <div class="center">
+              <button class="button is-primary" id="acceptModal">
+                Confirmar
+              </button>
+              <button class="button" id="closeModal">Cancelar</button>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div id="box">
+        <form class="pure-form   is-size-6" id="form_send">
+          <fieldset class="pure-group">
+            <legend class="is-size-5">PUNTOS DE INTERÉS</legend>
+            <hr />
+            <label class="label">Nombre</label>
+            <input
+              class="input"
+              type="text"
+              name="desc"
+              placeholder="EJ: AEROTERRA S.A."
+            />
+            <label class="label">Dirección</label>
+            <input
+              class="input"
+              type="text"
+              name="address"
+              placeholder="EJ: Av. Eduardo Madero 1020"
+            />
+            <label class="label">Teléfono</label>
+            <input
+              class="input"
+              type="tel"
+              name="tel"
+              placeholder="EJ: 54 9 11 5272 0900"
+            />
+            <label class="label">Coordenadas X e Y</label>
+            <input
+              class="input"
+              type="text"
+              name="coord"
+              pattern="^[0-9-,.]*$"
+              placeholder="EJ: -34.595986,-58.3724715"
+            />
+            <label class="label" for="category">Categoría</label>
+            <div class="select">
+              <select id="category" name="cat">
+                <option>Seleccionar</option>
+                <option>Comercial</option>
+                <option>Residencial</option>
+                <option>Mixta</option>
+              </select>
+            </div>
+            <div>
+              <button
+                type="submit"
+                id="add"
+                class="button is-primary is-outlined"
+              >
+                Agregar Punto
+              </button>
+              <button
+                id="example"
+                type="button"
+                class="button is-primary is-outlined"
+              >
+                Cargar Ejemplo
+              </button>
+              <button
+                id="cleanAll"
+                type="button"
+                class="button is-primary is-outlined"
+              >
+                Limpiar Mapa
+              </button>
+              <section class="help is-success is-size-6">
+                <p>
+                  <span class="icon is-small">
+                    <i class="fas fa-trash-alt"></i>
+                  </span>
+                  Doble click en el punto para eliminarlo
+                </p>
+                <p>
+                  <span class="icon is-small">
+                    <i class="fas fa-thumbtack"></i>
+                  </span>
+                  Utiliza el click derecho sobre el mapa para encontrar las
+                  coordenadas de tu punto
+                </p>
+              </section>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="custom-popup" id="map"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

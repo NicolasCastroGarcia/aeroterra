@@ -1,0 +1,58 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+#map {
+  height: 100%;
+  flex: 1;
+  z-index: 1;
+}
+
+#box {
+  max-width: 30%;
+  height: 100%;
+  background-color: white;
+}
+
+#container {
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+}
+
+.pure-form {
+  margin: 1em;
+  text-align: center;
+  display: flex;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.center {
+  justify-content: center;
+  display: flex;
+}
+
+.button {
+  margin-top: 0.5em;
+}
+
+.modal-card-body p {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+label {
+  margin-top: 0.5em;
+}
