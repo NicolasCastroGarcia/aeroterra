@@ -153,7 +153,7 @@ function handleClean(e) {
   document.forms["form_send"]["address"].value = "";
   document.forms["form_send"]["tel"].value = "";
   document.forms["form_send"]["coord"].value = "";
-  document.forms["form_send"]["cat"].value = "";
+  document.forms["form_send"]["cat"].value = "Seleccionar";
 }
 
 /*Eventos*/
