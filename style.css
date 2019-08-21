@@ -29,6 +29,8 @@ body {
   margin: 0em 1em 0em 1em;
   text-align: center;
   display: flex;
+  height: 100%;
+  justify-content: center;
 }
 
 legend {
