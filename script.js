@@ -149,6 +149,11 @@ function handleClean(e) {
   //función para limpiar el mapa completamente
   coordsGroup.clearLayers();
   markerGroup.clearLayers();
+  document.forms["form_send"]["desc"].value = "";
+  document.forms["form_send"]["address"].value = "";
+  document.forms["form_send"]["tel"].value = "";
+  document.forms["form_send"]["coord"].value = "";
+  document.forms["form_send"]["cat"].value = "";
 }
 
 /*Eventos*/
