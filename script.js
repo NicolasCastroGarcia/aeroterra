@@ -131,10 +131,10 @@ function handleDelete(e) {
 }
 
 function getCoords(e) {
+  //doble click para obtener coordenadas
   coordsGroup.clearLayers();
   const lat = e.latlng.lat;
   const lng = e.latlng.lng;
-
   document.forms["form_send"]["coord"].value = `${lat},${lng}`;
 
   const circle = L.circle([lat, lng], {
@@ -146,6 +146,7 @@ function getCoords(e) {
 }
 
 function handleClean(e) {
+  //función para limpiar el mapa completamente
   coordsGroup.clearLayers();
   markerGroup.clearLayers();
 }
