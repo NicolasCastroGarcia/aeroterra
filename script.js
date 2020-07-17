@@ -9,7 +9,7 @@ let markerToDelete;
 function run() {
   //cuando carga el documento ejecuta automáticamente la función
   L.tileLayer(
-    "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamFydTQyMyIsImEiOiJjanprYnZ5YjYwOXM3M29rYW9qcmNhbjV4In0.Chv8x8arXQVgzN4V6GYxPg",
+    "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
     {
       maxZoom: 18,
       attribution:
@@ -53,10 +53,10 @@ function handleSubmit(e) {
   if (
     // las coordenadas tienen una validación adicional en el input
     coord.value == "" ||
-    (coordArr[0] > 180 ||
-      coordArr[0] < -180 ||
-      coordArr[1] > 180 ||
-      coordArr[1] < -180)
+    coordArr[0] > 180 ||
+    coordArr[0] < -180 ||
+    coordArr[1] > 180 ||
+    coordArr[1] < -180
   ) {
     window.alert(
       "Ingrese Latitud y Longitud de la siguiente manera:-34.59,-58.37"
@@ -88,11 +88,7 @@ function handleAddMarker(info) {
   const lng = info.coord[1];
   const title = info.desc;
 
-  const popup = `<b>Nombre:</b><span> ${title} <br/><b>Dirección:</b><span> ${
-    info.address
-  } <br/><b>Teléfono:</b><span> ${info.tel} <br/><b>(X,Y):</b><span> ${
-    info.coord
-  } <br/> <b>Categoría:</b><span> ${info.cat} <br/>`;
+  const popup = `<b>Nombre:</b><span> ${title} <br/><b>Dirección:</b><span> ${info.address} <br/><b>Teléfono:</b><span> ${info.tel} <br/><b>(X,Y):</b><span> ${info.coord} <br/> <b>Categoría:</b><span> ${info.cat} <br/>`;
 
   L.marker([lat, lng])
     .addTo(markerGroup)
@@ -104,12 +100,13 @@ function handleAddMarker(info) {
 function handleExample() {
   //funcion para cargar datos predeterminados en el formulario
 
-  document.forms["form_send"]["desc"].value = "AEROTERRA S.A.";
+  document.forms["form_send"]["desc"].value = "Obelisco";
   document.forms["form_send"]["address"].value =
-    "Av. Eduardo Madero 1020, C1001 CABA";
-  document.forms["form_send"]["tel"].value = "54 9 11 5272 0900";
-  document.forms["form_send"]["coord"].value = "-34.595986,-58.3724715";
-  document.forms["form_send"]["cat"].value = "Comercial";
+    "Plaza de la República, Avenida Corrientes 1051, Ciudad de Buenos Aires, Argentina";
+  document.forms["form_send"]["tel"].value = "0800 000 000";
+  document.forms["form_send"]["coord"].value =
+    "-34.60376651468175,-58.38159953971951";
+  document.forms["form_send"]["cat"].value = "Mixta";
 }
 
 function onMarkerClick(e) {
@@ -125,7 +122,6 @@ function handleModalClose(e) {
 
 function handleDelete(e) {
   //si se clickea en el boton Confirmar se elimina el marcador y se cierra el modal
-  console.log(e);
   markerToDelete.removeFrom(markerGroup);
   handleModalClose();
 }
